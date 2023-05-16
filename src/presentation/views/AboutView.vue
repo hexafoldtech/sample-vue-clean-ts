@@ -5,19 +5,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import AddUserUseCase from '@/domain/usecases/AddUserUseCase';
-import UserEntity from '@/domain/entities/User'
+import {IUser,UserEntity} from '@/domain/entities/User'
 
 
 export default {
   methods: {
 
     async doSomething(){
+      const params = {id: 1, age: 20, name: "test"};
       const usecase = new AddUserUseCase({
-         user: new UserEntity()
+        userEntity: new UserEntity()
       });
-      await usecase.execute({id: 1, age: 20, name: "test"})
+      await usecase.execute(params);
   }
 },
 }
