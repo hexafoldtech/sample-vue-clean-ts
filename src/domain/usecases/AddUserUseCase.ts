@@ -8,9 +8,8 @@ export interface IAddItemUserUseCase {
 export default class AddUserUseCase implements BaseUseCase {
     userEntity: UserEntity
     
-    constructor({ userEntity }: IAddItemUserUseCase) {
-        this.userEntity = userEntity
-
+    constructor() {
+        this.userEntity = new UserEntity()
       }
     
     async execute(item: IUser) {

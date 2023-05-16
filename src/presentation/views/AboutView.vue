@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>{{ $store.state.user}}</h1>
-    <button @click="doSomething">Click me</button>
+    <button @click='clicked()'>Click me</button>
   </div>
 </template>
 
@@ -12,12 +12,9 @@ import {IUser,UserEntity} from '@/domain/entities/User'
 
 export default {
   methods: {
-
-    async doSomething(){
+    async clicked(){
       const params = {id: 1, age: 20, name: "test"};
-      const usecase = new AddUserUseCase({
-        userEntity: new UserEntity()
-      });
+      const usecase = new AddUserUseCase();
       await usecase.execute(params);
   }
 },

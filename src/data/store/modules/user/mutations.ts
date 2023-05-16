@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex'
 import { UserState, initialState } from './state'
 import { IUser } from '@/domain/entities/User'
-import { AddUser } from './types'
+import { Types, AddUser } from './types'
 
 export const mutations: MutationTree<UserState> = {
 
@@ -13,7 +13,7 @@ export const mutations: MutationTree<UserState> = {
         }
     },
 
-    setUser(state, action: AddUser){
+    [Types.ADD_USER](state, action: AddUser){
         const user:IUser = action.payload
         state.users.name = user.name
         state.users.id = user.id
