@@ -6,7 +6,6 @@ import { AddUser } from "../store/modules/user/types";
 
 export default class UserRepository implements BaseRepository {
 
-    constructor() {}
       // save items and params
       saveItem(params: IUser) {
         store.commit(new AddUser(params))
