@@ -8,12 +8,6 @@ export interface RootState {
   user: UserState,
 }
 
-// const store = new Vuex.Store<RootState>({
-//   modules: {
-//     user: UserStore,
-//   }
-// });
-
 const counterModule = {
   // namespace the module
   namespaced: true,
@@ -48,17 +42,3 @@ const store = createStore({
 
 export default store;
 
-
-// export default createStore({
-//   state: {
-//   },
-//   getters: {
-//   },
-//   mutations: {
-//   },
-//   actions: {
-//   },
-//   modules: {
-//     user: UserStore,
-//   }
-// })
