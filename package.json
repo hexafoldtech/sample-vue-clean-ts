@@ -22,7 +22,8 @@
     "vue-router": "^4.0.3",
     "vuetify": "^3.2.5",
     "vuex": "^4.0.0",
-    "vuex-module-decorators": "^2.0.0"
+    "vuex-module-decorators": "^2.0.0",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",

@@ -1,6 +1,7 @@
 
 import { createStore } from 'vuex';
 import {UserState, UserStore} from "./user";
+import createPersistedState from "vuex-persistedstate";
 
 
 export interface RootState {
@@ -39,12 +40,14 @@ const store = createStore({
   modules: {
     counterMod: counterModule,
     user: UserStore,
-  }
+  },
+  plugins: [createPersistedState()]
 })
 
 
 
 export default store;
+
 
 // export default createStore({
 //   state: {

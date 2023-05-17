@@ -15,9 +15,9 @@ import {getModule} from "vuex-module-decorators";
 import store from "@/data/store";
 
 
-export default class TestView extends Vue {
+export default class AboutView extends Vue {
 
-  @Prop({required: false}) user!: User
+  @Prop({required: false}) user: User = {id: 1, name: "Ad", age:10}
 
   loading = false
 
