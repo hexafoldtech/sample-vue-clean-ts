@@ -35,7 +35,7 @@ const store = createStore({
     counterMod: counterModule,
     user: UserStore,
   },
-  plugins: [createPersistedState()]
+  //plugins: [createPersistedState()]
 })
 
 

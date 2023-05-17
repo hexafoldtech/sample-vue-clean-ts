@@ -1,7 +1,7 @@
 
-import { addUser } from "@/di";
+import { addUser, lazyInject } from "@/di";
 import { User } from "@/domain/entities/User";
-import {AddUserUseCase, AddUserUseCaseImpl} from "@/domain/usecases/AddUserUseCase";
+import {AddUserUseCase} from "@/domain/usecases/AddUserUseCase";
 
 
 import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
@@ -22,7 +22,7 @@ export interface AddItemToUser {
   })
   export class UserStore extends VuexModule implements UserState {
     public items: User[] = [];
-    //const addUser = inject('AddUserUseCase') as AddUserUseCase;
+    //@lazyInject("AddUserUseCase") private addUser!: AddUserUseCase;
 
     @Mutation
     addItem(user: User) {
