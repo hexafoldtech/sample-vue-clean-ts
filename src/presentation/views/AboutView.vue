@@ -12,7 +12,7 @@ import { Vue } from 'vue-class-component';
 import { User } from "@/domain/entities/User";
 import { UserStore } from "@/data/store/user";
 import {getModule} from "vuex-module-decorators";
-import store from "@/data/store";
+
 
 
 export default class AboutView extends Vue {
