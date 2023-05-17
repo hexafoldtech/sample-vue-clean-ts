@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { Container } from "inversify";
 import UserRepository from "./data/repositories/UserRepository";
 import UserRepositoryImpl from "./data/repositories/UserRepositoryImpl";
