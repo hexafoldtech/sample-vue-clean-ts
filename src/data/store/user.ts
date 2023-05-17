@@ -34,6 +34,7 @@ export interface AddItemToUser {
     @Action
     async addItemToUser({user, quantity}: AddItemToUser) {
         //Make API call.
+        console.log(quantity)
         this.addItemToItems.execute(user);
         //Update state.
         this.addItem(user);
