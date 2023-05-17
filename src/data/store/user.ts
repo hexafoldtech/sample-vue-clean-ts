@@ -1,7 +1,11 @@
-import { addUserUseCase } from "@/di";
+
+import { addUser } from "@/di";
 import { User } from "@/domain/entities/User";
-import {AddUserUseCase} from "@/domain/usecases/AddUserUseCase";
+import {AddUserUseCase, AddUserUseCaseImpl} from "@/domain/usecases/AddUserUseCase";
+
+
 import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
+
 
 export interface UserState {
     items: User[];
@@ -18,6 +22,7 @@ export interface AddItemToUser {
   })
   export class UserStore extends VuexModule implements UserState {
     public items: User[] = [];
+    //const addUser = inject('AddUserUseCase') as AddUserUseCase;
 
     @Mutation
     addItem(user: User) {
@@ -34,7 +39,7 @@ export interface AddItemToUser {
     async addItemToUser({user, quantity}: AddItemToUser) {
         //Make API call.
         console.log("quantity -> store action" + quantity)
-        addUserUseCase.execute(user).toPromise();
+        addUser.execute(user).toPromise();
         //Update state.
         this.addItem(user as User);
     }

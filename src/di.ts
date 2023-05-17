@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import { Container } from "inversify";
 import UserRepository from "./data/repositories/UserRepository";
 import UserRepositoryImpl from "./data/repositories/UserRepositoryImpl";
@@ -21,8 +20,9 @@ container
   .inSingletonScope();
 
 
-const addUserUseCase = new AddUserUseCaseImpl(new UserRepositoryImpl());
+const addUser = new AddUserUseCaseImpl(new UserRepositoryImpl());
+
 
 const {lazyInject} = getDecorators(container);
-export {lazyInject, container, addUserUseCase};
+export {lazyInject, container, addUser};
 
