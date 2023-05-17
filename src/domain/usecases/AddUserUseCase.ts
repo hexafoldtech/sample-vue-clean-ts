@@ -1,15 +1,12 @@
 import { Observable } from "rxjs";
-import { IUser, User, UserEntity } from "../entities/User";
-import BaseUseCase from "./BaseUseCase";
+
 import UserRepository from "@/data/repositories/UserRepository";
 import { inject, injectable } from "inversify";
+import { User } from "../entities/User";
 
 export interface AddUserUseCase {
   execute(user: User): Observable<void>;
 }
-export interface IAddItemUserUseCase {
-  userEntity: UserEntity;
-  }
 
 @injectable()
 export default class AddUserUseCaseImpl implements AddUserUseCase {
