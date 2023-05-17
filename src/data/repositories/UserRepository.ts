@@ -1,17 +1,8 @@
-import { IUser } from "@/domain/entities/User";
-import store from '@/data/store'
+import { User } from "@/domain/entities/User";
 
-import BaseRepository from "./BaseRepository";
-import { AddUser } from "../store/modules/user/types";
+import { Observable } from "rxjs";
 
-export default class UserRepository implements BaseRepository {
-
-      // save items and params
-      saveItem(params: IUser) {
-        store.commit(new AddUser(params))
-      }
-
-      getItem(): IUser {
-        return store.state.user.users
-      }
+export default interface UserRepository {
+  saveItem(params: User) : Observable<void>;
+  getItem(): User;
 }

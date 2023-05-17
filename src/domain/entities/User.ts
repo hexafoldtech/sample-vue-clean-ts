@@ -7,7 +7,11 @@ export interface IUser {
     age: number;
   }
 
-
+  export interface User {
+    id: number;
+    name: string;
+    age: number;
+  }
 
   export class UserEntity {
     constructor() {

@@ -1,14 +1,14 @@
 import { createStore } from 'vuex';
 import Vuex from "vuex";
+import {UserState, UserStore} from "./user";
 
-import * as user from '@/data/store/modules/user'
 
 export interface RootState {
-  user: user.UserState,
+  user: UserState,
 }
 export default new Vuex.Store<RootState>({
   modules: {
-    user: user.store,
+    user: UserStore,
   }
 })
 

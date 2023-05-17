@@ -1,20 +1,25 @@
-import { IUser, UserEntity } from "../entities/User";
+import { Observable } from "rxjs";
+import { IUser, User, UserEntity } from "../entities/User";
 import BaseUseCase from "./BaseUseCase";
+import UserRepository from "@/data/repositories/UserRepository";
+import { inject, injectable } from "inversify";
 
+export interface AddUserUseCase {
+  execute(user: User): Observable<void>;
+}
 export interface IAddItemUserUseCase {
   userEntity: UserEntity;
   }
 
-export default class AddUserUseCase implements BaseUseCase {
-    userEntity: UserEntity
+@injectable()
+export default class AddUserUseCaseImpl implements AddUserUseCase {
+ 
+  constructor(
+    @inject("UserRepository") private userRepository: UserRepository
+  ) {
+  }
+  execute(user: User): Observable<void> {
+    return this.userRepository.saveItem(user)
+  }
     
-    constructor() {
-        this.userEntity = new UserEntity()
-      }
-    
-    async execute(item: IUser) {
-        console.log(item)
-        this.userEntity.addItem(item)
-        return
-      }
 }
