@@ -1,5 +1,5 @@
 <template>
-  <h2>{{ $store.counterMod }}</h2>
+  <h2>{{ $store.state.user.items }}</h2>
   <button @click='addToStore'>Click me</button>
 
   <p>Counter: {{ $store.state.counterMod.counter}}</p>
@@ -27,7 +27,7 @@ export default class TestView extends Vue {
   incrementCounter() {
       // specify 'counterMod' namespace
       // before the action name
-      console.log("Dispatching")
+      console.log(this.$store.state.user)
       this.$store.dispatch('counterMod/increment', 5)
     }
 
