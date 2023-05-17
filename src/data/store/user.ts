@@ -1,6 +1,6 @@
 import { lazyInject } from "@/di";
 import { User } from "@/domain/entities/User";
-import AddUserUseCase from "@/domain/usecases/AddUserUseCase";
+import {AddUserUseCase} from "@/domain/usecases/AddUserUseCase";
 import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
 
 export interface UserState {
@@ -18,11 +18,13 @@ export interface AddItemToUser {
   })
   export class UserStore extends VuexModule implements UserState {
     public items: User[] = [];
+    
     @lazyInject("AddUserUseCase") private addItemToItems!: AddUserUseCase;
 
 
     @Mutation
     addItem(user: User) {
+      console.log("Mutation ->"+user)
         this.items.push(user);
     }
 
@@ -31,12 +33,12 @@ export interface AddItemToUser {
       this.items = []
     }
 
-    @Action
+    @Action({rawError: true})
     async addItemToUser({user, quantity}: AddItemToUser) {
         //Make API call.
-        console.log(quantity)
-        this.addItemToItems.execute(user);
+        console.log("quantity -> store action" + quantity)
+        this.addItemToItems.execute(user).toPromise();
         //Update state.
-        this.addItem(user);
+        this.addItem(user as User);
     }
   }

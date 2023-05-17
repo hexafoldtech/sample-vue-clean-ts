@@ -9,13 +9,14 @@ export interface AddUserUseCase {
 }
 
 @injectable()
-export default class AddUserUseCaseImpl implements AddUserUseCase {
+export class AddUserUseCaseImpl implements AddUserUseCase {
  
   constructor(
     @inject("UserRepository") private userRepository: UserRepository
   ) {
   }
   execute(user: User): Observable<void> {
+    console.log("Usecase execute")
     return this.userRepository.saveItem(user)
   }
     
