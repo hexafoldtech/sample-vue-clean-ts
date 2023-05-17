@@ -18,8 +18,6 @@ export interface AddItemToUser {
   })
   export class UserStore extends VuexModule implements UserState {
     public items: User[] = [];
-    public addItemToItems: AddUserUseCase = addUserUseCase;
-
 
     @Mutation
     addItem(user: User) {
@@ -36,7 +34,7 @@ export interface AddItemToUser {
     async addItemToUser({user, quantity}: AddItemToUser) {
         //Make API call.
         console.log("quantity -> store action" + quantity)
-        this.addItemToItems.execute(user).toPromise();
+        addUserUseCase.execute(user).toPromise();
         //Update state.
         this.addItem(user as User);
     }
