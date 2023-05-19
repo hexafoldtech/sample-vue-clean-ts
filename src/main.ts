@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './presentation/router'
 import store from './data/store'
 import '@/presentation/assets/main.css';
-
+import '@/presentation/assets/scss/argon-dashboard.scss';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { AddUserUseCaseImpl } from './domain/usecases/AddUserUseCase'
 import UserRepositoryImpl from './data/repositories/UserRepositoryImpl'
