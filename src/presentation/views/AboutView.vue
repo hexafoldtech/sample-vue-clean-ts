@@ -31,6 +31,7 @@ export default class AboutView extends Vue {
       this.$store.dispatch('counterMod/increment', 5)
     }
 
+    
   addToStore() {
       this.loading = true;
       console.log(this.userStore);
@@ -44,3 +45,5 @@ export default class AboutView extends Vue {
 
 
 </script>
+
+

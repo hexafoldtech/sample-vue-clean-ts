@@ -17,7 +17,5 @@ export default class UserRepositoryImpl implements UserRepository {
             return;
           })
         );
-      }
-
-     
+      }  
 }

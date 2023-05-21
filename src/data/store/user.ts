@@ -1,7 +1,10 @@
 
 import { addUser, lazyInject } from "@/di";
 import { User } from "@/domain/entities/User";
+import { Credentials } from "@/domain/entities/credentials";
 import {AddUserUseCase} from "@/domain/usecases/AddUserUseCase";
+import router from "@/presentation/router";
+import axios from "axios";
 
 
 import { Action, Module, Mutation, VuexModule } from "vuex-module-decorators";
@@ -15,6 +18,11 @@ export interface AddItemToUser {
     user: User;
     quantity: number;
   }
+
+export interface LoginUser {
+  user:Credentials;
+
+}
 
   @Module({
     name: "user",
@@ -42,5 +50,16 @@ export interface AddItemToUser {
         addUser.execute(user).toPromise();
         //Update state.
         this.addItem(user as User);
+    }
+
+
+    @Action
+    async loginUser({user}:LoginUser){
+      try{
+        await axios.post(`${process.env.VUE_APP_BASEAPI}login`,user);
+        router.push({path:"/"})
+      }catch(err){
+       alert("user auth failed try after some time")
+      }
     }
   }
