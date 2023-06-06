@@ -20,6 +20,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path:"/kpi",
+    name:"kpis",
+    component:() => import("@/presentation/views/KpisView.vue")
+  },
+  {
+    path:"/sidenav",
+    name:"sidenav",
+    component:() => import("@/presentation/views/SidanavView.vue")
   }
 ]
 
